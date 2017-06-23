@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D15D5ADD1EFCC15800D54653 /* AutoSizeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D15D5ADB1EFCC15800D54653 /* AutoSizeCell.m */; };
+		D15D5ADE1EFCC15800D54653 /* AutoSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15D5ADC1EFCC15800D54653 /* AutoSizeCell.xib */; };
 		D17C03A31EF35EDA00A12DC4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D17C03A21EF35EDA00A12DC4 /* main.m */; };
 		D17C03A61EF35EDA00A12DC4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D17C03A51EF35EDA00A12DC4 /* AppDelegate.m */; };
 		D17C03A91EF35EDA00A12DC4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17C03A81EF35EDA00A12DC4 /* ViewController.m */; };
@@ -56,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D15D5ADA1EFCC15800D54653 /* AutoSizeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoSizeCell.h; sourceTree = "<group>"; };
+		D15D5ADB1EFCC15800D54653 /* AutoSizeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoSizeCell.m; sourceTree = "<group>"; };
+		D15D5ADC1EFCC15800D54653 /* AutoSizeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutoSizeCell.xib; sourceTree = "<group>"; };
 		D17C039E1EF35EDA00A12DC4 /* ThreadDeno.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreadDeno.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D17C03A21EF35EDA00A12DC4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D17C03A41EF35EDA00A12DC4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -223,6 +228,9 @@
 				D17C03DF1EF3BD4000A12DC4 /* ImageCell.xib */,
 				D17C03E21EF3BFD200A12DC4 /* UIImageView+maxWebCache.h */,
 				D17C03E31EF3BFD200A12DC4 /* UIImageView+maxWebCache.m */,
+				D15D5ADA1EFCC15800D54653 /* AutoSizeCell.h */,
+				D15D5ADB1EFCC15800D54653 /* AutoSizeCell.m */,
+				D15D5ADC1EFCC15800D54653 /* AutoSizeCell.xib */,
 			);
 			path = TableSubViews;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 				D17C03AE1EF35EDA00A12DC4 /* Assets.xcassets in Resources */,
 				D17C03AC1EF35EDA00A12DC4 /* Main.storyboard in Resources */,
 				D17C04061EF3C1AA00A12DC4 /* LICENSE in Resources */,
+				D15D5ADE1EFCC15800D54653 /* AutoSizeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +441,7 @@
 				D17C040E1EF3C1AA00A12DC4 /* SDWebImageManager.m in Sources */,
 				D17C03A31EF35EDA00A12DC4 /* main.m in Sources */,
 				D17C04131EF3C1AA00A12DC4 /* UIImageView+HighlightedWebCache.m in Sources */,
+				D15D5ADD1EFCC15800D54653 /* AutoSizeCell.m in Sources */,
 				D17C04091EF3C1AA00A12DC4 /* SDImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -670,6 +680,7 @@
 				D17C03CD1EF35EDB00A12DC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D17C03CE1EF35EDB00A12DC4 /* Build configuration list for PBXNativeTarget "ThreadDenoTests" */ = {
 			isa = XCConfigurationList;
@@ -678,6 +689,7 @@
 				D17C03D01EF35EDB00A12DC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D17C03D11EF35EDB00A12DC4 /* Build configuration list for PBXNativeTarget "ThreadDenoUITests" */ = {
 			isa = XCConfigurationList;
@@ -686,6 +698,7 @@
 				D17C03D31EF35EDB00A12DC4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

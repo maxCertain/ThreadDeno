@@ -12,4 +12,6 @@
 
 - (void)max_imageWithUrl:(NSString *)urlString;
 
+- (void)max_imageWithUrl:(NSString *)urlString placeholderImage:(UIImage *)placeholder;
+
 @end

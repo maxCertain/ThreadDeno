@@ -10,6 +10,8 @@
 #import "ImageCell.h"
 #import "UIImageView+maxWebCache.h"
 #import "UIImageView+WebCache.h"
+#import "PthreadTools.h"
+#import "AutoSizeCell.h"
 
 #define kScreen_width  [UIScreen mainScreen].bounds.size.width;
 #define kScreen_height [UIScreen mainScreen].bounds.size.height
@@ -26,6 +28,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, copy) NSArray *dataSource;
+@property (nonatomic, copy) NSArray *datas;
+@property (nonatomic, copy) NSMutableArray *heightOfindexs;
 
 @end
 
@@ -36,33 +40,67 @@
     
     NSLog(@"%@",NSHomeDirectory());
     
+    PthreadTools *tool = [[PthreadTools alloc] init];
     [self maintUI];
+    
+    NSArray *array = @[@"fasdfafa- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{",@"dafafda",@"//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{",@"numberOfRowsInSection:(NSInteger)",@"最后再说说iOS7下UILabel的一个坑，如果要使你的UILabel能够正常的多行显示，除了一开始说到的设置numberOfLines为0，还需要设置preferredMaxLayoutWidth，这个属性指的当换行的最大宽度。iOS8＋能够通过AutoLayout计算出UILabel的宽度，把这个宽度作为preferredMaxLayoutWidth，但是iOS7下面不行，应该是一个bug。解决的方案是继承UILabel，重写layoutSubviews。"];
+    NSMutableArray *mut = [array mutableCopy];
+    [mut addObjectsFromArray:array];
+    [mut addObjectsFromArray:array];
+    [mut addObjectsFromArray:array];
+    self.datas = mut;
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.dataSource.count;
+    if (section == 0) {
+        return self.datas.count;
+    }else{
+      return self.dataSource.count;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 200;
+    
+    if (indexPath.section == 0) {
+        return UITableViewAutomaticDimension;
+    }else{
+        return 200;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    NSString *urlStr = [_dataSource objectAtIndex:indexPath.row];
-//    NSURL *url = [NSURL URLWithString:urlStr];
-//    [cell.customImageView sd_setImageWithURL:url];
     
-    [cell.customImageView max_imageWithUrl:urlStr];
+    if (indexPath.section == 0) {
+        AutoSizeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2"];
     
-    return cell;
+        cell.taskdescribe.text = [self.datas objectAtIndex:indexPath.row];
+        [cell.contentView setAutoresizesSubviews:YES];
+        return cell;
+    }else{
+        ImageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+        NSString *urlStr = [_dataSource objectAtIndex:indexPath.row];
+    //    NSURL *url = [NSURL URLWithString:urlStr];
+    //    [cell.customImageView sd_setImageWithURL:url];
+
+        [cell.customImageView max_imageWithUrl:urlStr];
+        
+        return cell;
+    }
 }
 
 
 - (void)maintUI{
     UINib *nib = [UINib nibWithNibName:@"ImageCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"cell"];
+    UINib *nib2 = [UINib nibWithNibName:@"AutoSizeCell" bundle:nil];
+    [self.tableView registerNib:nib2 forCellReuseIdentifier:@"cell2"];
+//    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.navigationItem.title = @"图片";
 }
 
